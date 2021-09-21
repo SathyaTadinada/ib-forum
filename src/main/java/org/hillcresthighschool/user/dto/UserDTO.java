@@ -1,6 +1,7 @@
 package org.hillcresthighschool.user.dto;
 
 import lombok.*;
+import org.hillcresthighschool.user.entity.UserType;
 
 @Getter
 @Setter
@@ -16,6 +17,6 @@ public class UserDTO {
     private String password;
     private String phoneNumber;
     private String username;
-
+    private UserType type;
 
 }
