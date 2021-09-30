@@ -6,8 +6,8 @@ import org.hillcresthighschool.user.entity.UserType;
 @Getter
 @Setter
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
+//@NoArgsConstructor
+//@AllArgsConstructor
 @ToString
 public class UserDTO {
     private String firstName;
