@@ -1,2 +1,8 @@
 .idea
 /target/
+/.idea/
+target/classes/org/hillcresthighschool/user/service/UserService.class
+target/classes/org/hillcresthighschool/user/entity/User.class
+target/classes/org/hillcresthighschool/user/entity/User$UserBuilder.class
+target/classes/org/hillcresthighschool/user/dto/UserDTO$UserDTOBuilder.class
+.idea/ib-forum.iml
