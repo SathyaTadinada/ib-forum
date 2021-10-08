@@ -12,13 +12,35 @@
     <groupId>org.hillcresthighschool</groupId>
     <artifactId>ib-forum</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <properties>
+        <!-- util -->
+        <bouncycastle.version>1.60</bouncycastle.version>
+        <commons-codec.version>1.11</commons-codec.version>
+        <!-- testing -->
+        <assertj-core.version>3.18.0</assertj-core.version>
+        <jaxb-api.version>2.3.1</jaxb-api.version>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>30.1.1-jre</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons-codec.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>${bouncycastle.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

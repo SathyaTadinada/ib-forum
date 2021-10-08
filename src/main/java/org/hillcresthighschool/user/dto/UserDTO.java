@@ -12,11 +12,11 @@ import org.hillcresthighschool.user.entity.UserType;
 public class UserDTO {
     private String firstName;
     private String lastName;
-    private Long userID;
+    private Integer userID;
     private String email;
     private String password;
     private String phoneNumber;
     private String username;
-    private UserType type;
+//    private UserType type;
 
 }

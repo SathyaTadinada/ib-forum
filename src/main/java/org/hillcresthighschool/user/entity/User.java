@@ -1,20 +1,20 @@
 package org.hillcresthighschool.user.entity;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="users")
 public class User {
 
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Id
     @Column (name="users_id")
     private Integer id;
 
@@ -39,14 +39,4 @@ public class User {
     @Column(name="salt")
     private String salt;
 
-    /*
-    users_id INT AUTO_INCREMENT,
-    first_name VARCHAR(35) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    email VARCHAR(200) NOT NULL,
-    phone VARCHAR(30) NOT NULL,
-    username VARCHAR(30) NOT NULL,
-    password_hash VARCHAR(100) NOT NULL,
-    salt VARCHAR(100) NOT NULL
-     */
 }
