@@ -1,16 +1,2 @@
 /target/
 /.idea/
-#target/classes/org/hillcresthighschool/user/service/UserService.class
-#target/classes/org/hillcresthighschool/user/entity/User.class
-#target/classes/org/hillcresthighschool/user/entity/User$UserBuilder.class
-#target/classes/org/hillcresthighschool/user/dto/UserDTO$UserDTOBuilder.class
-#.idea/ib-forum.iml
-#target/classes/org/hillcresthighschool/user/controller/UserController.class
-#target/classes/org/hillcresthighschool/user/dto/UserDTO.class
-.idea/ib-forum.iml
-target/classes/org/hillcresthighschool/user/controller/UserController.class
-target/classes/org/hillcresthighschool/user/dto/UserDTO$UserDTOBuilder.class
-target/classes/org/hillcresthighschool/user/dto/UserDTO.class
-target/classes/org/hillcresthighschool/user/entity/User$UserBuilder.class
-target/classes/org/hillcresthighschool/user/entity/User.class
-target/classes/org/hillcresthighschool/user/service/UserService.class
