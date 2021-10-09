@@ -2,9 +2,11 @@ package org.hillcresthighschool.user.controller;
 
 import org.hillcresthighschool.user.dto.UserDTO;
 import org.hillcresthighschool.user.service.UserService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping ("/users")
 public class UserController {
     private final UserService userService;
@@ -25,5 +27,9 @@ public class UserController {
                 .username(savedUser.getUsername())
                 .userID(savedUser.getId())
                 .build();
+    }
+    @GetMapping ("/hello")
+    public String hello(Model model) {
+        return "createAccount";
     }
 }
