@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping ("/users")
+@RequestMapping
 public class UserController {
     private final UserService userService;
 
@@ -15,11 +15,11 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping()
-    public UserDTO createUser(@RequestBody UserDTO user) {
+    @PostMapping("/create")
+    public String createUser(Model model, @ModelAttribute UserDTO user) {
         System.out.println("User: " + user.toString());
         var savedUser = userService.createUser(user);
-        return UserDTO.builder()
+        var result = UserDTO.builder()
                 .email(savedUser.getEmail())
                 .firstName(savedUser.getFirstName())
                 .lastName(savedUser.getLastName())
@@ -27,9 +27,13 @@ public class UserController {
                 .username(savedUser.getUsername())
                 .userID(savedUser.getId())
                 .build();
+        model.addAttribute("user", result);
+        return "users/userSuccess";
     }
-    @GetMapping ("/hello")
+
+    @GetMapping ("/create")
     public String hello(Model model) {
-        return "createAccount";
+        model.addAttribute("user", new UserDTO());
+        return "users/addUser";
     }
 }

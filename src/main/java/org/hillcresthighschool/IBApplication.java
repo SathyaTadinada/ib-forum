@@ -9,13 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = "org.hillcresthighschool")
 
-public class IBApplication extends SpringBootServletInitializer {
+public class IBApplication {
     public static void main(String[] args) {
         SpringApplication.run(IBApplication.class, args);
-    }
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(IBApplication.class);
     }
 }
