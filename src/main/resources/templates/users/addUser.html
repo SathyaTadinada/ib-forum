@@ -1,43 +1,193 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang=""
+>
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>k</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .bg-img {
+            /* The image used */
+            background-image: url("\\images\\bg1.jpg");
+            background-color:powderblue;
+            min-height: 900px;
+            margin: auto;
+            padding: 10px;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            text-align:center;
+        }
+
+        /* Add styles to the form container */
+        .container {
+            border: 5px solid #555;
+            background-color: lightgoldenrodyellow;
+            max-width: 800px;
+            padding: 50px;
+            margin: auto;
+        }
+
+
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Set a style for the submit button */
+        .btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .btn:hover {
+            opacity: 1;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #5C5F50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+
+        }
+
+        .button:hover {background-color: #3e8e41}
+
+        .button1:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+
+        h1 {
+            display: block;
+            font-size: 5em;
+            margin-top: 0.67em;
+            margin-bottom: 0.67em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+
+        }
+        a { text-decoration: none;
+            background-color: #5C5F50;
+        }
+
+    </style>
 </head>
 <body>
-<th:block>
-<!--    <p th:text = "${greeting}"></p>-->
-</th:block>
-<!--<p th:text = "${user.getFirstName()}"></p>-->
-<!--<p th:text = "${user.getLastName()}"></p>-->
-<!--<p th:text = "${user.getEmail()}"></p>-->
-<h1>
-    Create User
-</h1>
-<form action="#" th:action = "@{/create}" th:object="${user}" method="post">
-    <p>
-        <label> First name: </label>
-        <input type="text" th:field="*{firstName}">
-        <label> Last name: </label>
-        <input type="text" th:field="*{lastName}">
-        <label> Email: </label>
-        <input type="text" th:field="*{email}">
-        <label> Password: </label>
-        <input type="text" th:field="*{password}">
-        <label> Phone number: </label>
-        <input type="text" th:field="*{phoneNumber}">
-        <label> Username: </label>
-        <input type="text" th:field="*{username}">
-        <input type="submit" value="Add user">
+
+
+<div class="bg-img">
+    <img src="/images/ib-world-school-logo-1-colour.gif"  width="400" height="300" align="left" class="headcontainer">
+    <br><br>
+    <h5>
+        **All fields required
+    </h5>
+    <form action="#" th:action = "@{/create}" th:object="${user}" method="post" class="container">
+        <p>
+            <label> First name: </label>
+            <input type="text" th:field="*{firstName} size="50"">
+            <br><br>
+            <label> Last name: </label>
+            <input type="text" th:field="*{lastName}" size="50">
+            <br><br>
+            <label> Email: </label>
+            <input type="text" th:field="*{email}" size="50">
+            <br><br>
+            <label> Password:
+            <input type="text" id="password" th:field="*{password}" size="50" onkeyup='checkPassword();'>
+             </label>
+            <br><br>
+            <label> Re-enter Password:
+            <input type="text" id="re_password" th:field="*{password}" size="50" onkeyup='checkPassword();'>
+                <span id='message'></span>
+            </label>
+            <br><br>
+
+        </p>
+        <p th:align="left">
+        <h4> Please select one of the following:</h4>
+          <table align="left">
+              <tr th:align="left">
+                  <input type="radio" id="parent" name="choice" value="parent">
+                  <label for="parent">Prospective IB Parent</label><br>
+              </tr>
+              <tr th:align="left">
+                  <input type="radio" id="student" name="choice" value="student">
+                  <label for="student">Prospective IB Student</label><br>
+              </tr>
+              <tr th:align="left">
+                  <input type="radio" id="cparent" name="choice" value="cparent">
+                  <label for="cparent">Current IB Parent</label><br>
+              </tr>
+              <tr th:align="left">
+                  <input type="radio" id="cstudent" name="choice" value="cstudent">
+                  <label for="cstudent">Current IB Student</label><br><br>
+              </tr>
+          </table>
+            <input type="submit" value="Create Account">
+        <br><br>
+
+        <a href="javascript: history.go(-1)">Go Back</a>
+        </p>
+    </form>
+</div>
 
 
 
-    </p>
-</form>
 
+<script>
+    var checkPassword = function() {
+        if (document.getElementById('password').value ==
+            document.getElementById('re_password').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'Password matching';
+        } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'Password not matching';
+        }
+    }
+</script>
 </body>
+
 </html>
+
+

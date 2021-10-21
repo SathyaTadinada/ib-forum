@@ -1,0 +1,145 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang=""
+>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .bg-img {
+      /* The image used */
+      background-image: url("\\images\\bg1.jpg");
+      background-color:powderblue;
+      min-height: 900px;
+      margin: auto;
+      padding: 10px;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      text-align:center;
+    }
+
+    /* Add styles to the form container */
+    .container {
+      border: 5px solid #555;
+      background-color: lightgoldenrodyellow;
+      max-width: 800px;
+      padding: 50px;
+      margin: auto;
+    }
+
+
+
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    input[type=text]:focus, input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    /* Set a style for the submit button */
+    .btn {
+      background-color: #04AA6D;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+
+    .btn:hover {
+      opacity: 1;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 25px;
+      font-size: 24px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: #fff;
+      background-color: #5C5F50;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 9px #999;
+
+    }
+
+    .button:hover {background-color: #3e8e41}
+
+    .button1:active {
+      background-color: #3e8e41;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+
+    h1 {
+      display: block;
+      font-size: 5em;
+      margin-top: 0.67em;
+      margin-bottom: 0.67em;
+      margin-left: 0;
+      margin-right: 0;
+      font-weight: bold;
+
+    }
+    a { text-decoration: none;
+      background-color: #5C5F50;
+    }
+
+  </style>
+</head>
+<body>
+
+
+<div class="bg-img">
+  <img src="/images/ib-world-school-logo-1-colour.gif"  width="400" height="300" align="left" class="headcontainer">
+  <br><br>
+  <h5>
+    **All fields required
+  </h5>
+  <form action="#" th:action = "@{/create}" th:object="${user}" method="post" class="container">
+    <p>
+
+      <label> Email: </label>
+      <input type="text" th:field="*{email}" size="50">
+      <br><br>
+      <label> Password: </label>
+      <input type="text" th:field="*{password}" size="50">
+      <br><br>
+
+    </p>
+    <input type="submit" value="Login">
+    <br>
+    <br>
+    <a href="javascript: history.go(-1)">Go Back</a>
+    </p>
+  </form>
+</div>
+
+
+</body>
+</html>
