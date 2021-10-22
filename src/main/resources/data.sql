@@ -8,7 +8,9 @@ CREATE TABLE users (
     phone VARCHAR(30) NOT NULL,
     username VARCHAR(30) NOT NULL,
     password_hash VARCHAR(100) NOT NULL,
-    salt VARCHAR(100) NOT NULL
+    salt VARCHAR(100) NOT NULL,
+    deleted BIT DEFAULT 0 NOT NULL,
+    user_type INT NOT NULL
 );
 
 CREATE UNIQUE INDEX U_users_email ON users
@@ -61,3 +63,57 @@ CREATE UNIQUE INDEX U_user_type_name ON user_type
 );
 
 
+
+DROP TABLE IF EXISTS response;
+
+CREATE TABLE response(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    question_id INT NOT NULL,
+    text VARCHAR(200) NOT NULL,
+    date TIMESTAMP NOT NULL,
+    anonymous BIT DEFAULT 0 NOT NULL,
+    approved_by INT,
+    likes INT DEFAULT 0 NOT NULL
+
+);
+
+
+DROP TABLE IF EXISTS question_category;
+
+CREATE TABLE question_category(
+    question_id INT NOT NULL,
+    category_id INT NOT NULL
+
+);
+
+ALTER TABLE question_category
+    ADD FOREIGN KEY(question_id)
+    REFERENCES question(id);
+
+ALTER TABLE question_category
+    ADD FOREIGN KEY(category_id)
+    REFERENCES category(id);
+
+ALTER TABLE users
+    ADD FOREIGN KEY(user_type)
+    REFERENCES user_type(id);
+
+ALTER TABLE question
+    ADD FOREIGN KEY(user_id)
+    REFERENCES users(users_id);
+
+ALTER TABLE response
+    ADD FOREIGN KEY(user_id)
+    REFERENCES users(users_id);
+
+ALTER TABLE response
+    ADD FOREIGN KEY(question_id)
+    REFERENCES question(id);
+
+
+
+INSERT INTO user_type (name) VALUES
+  ('Admin'),
+  ('Student'),
+  ('Parent');
