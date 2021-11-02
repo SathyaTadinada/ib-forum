@@ -86,7 +86,6 @@ CREATE TABLE question_category(
     category_id INT NOT NULL
 
 );
-
 ALTER TABLE question_category
     ADD FOREIGN KEY(question_id)
     REFERENCES question(id);
@@ -94,6 +93,23 @@ ALTER TABLE question_category
 ALTER TABLE question_category
     ADD FOREIGN KEY(category_id)
     REFERENCES category(id);
+
+
+DROP TABLE IF EXISTS question_likes;
+CREATE TABLE question_likes(
+    question_id INT NOT NULL,
+    user_id INT NOT NULL
+);
+ALTER TABLE question_likes
+    ADD FOREIGN KEY(question_id)
+    REFERENCES question(id);
+
+ALTER TABLE question_likes
+    ADD FOREIGN KEY(user_id)
+    REFERENCES category(id);
+
+
+
 
 ALTER TABLE users
     ADD FOREIGN KEY(user_type)
@@ -109,7 +125,7 @@ ALTER TABLE response
 
 ALTER TABLE response
     ADD FOREIGN KEY(question_id)
-    REFERENCES question(id);
+    REFERENCES users(users_id);
 
 
 
