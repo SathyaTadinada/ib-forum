@@ -25,8 +25,7 @@ public class QuestionServiceImpl implements QuestionService{
                 .approvedBy(dto.getApprovedBy())
                 .build();
 
-            var savedQuestion = questionRepository.save(question);
-        return savedQuestion;
+        return questionRepository.save(question);
     }
 
 
