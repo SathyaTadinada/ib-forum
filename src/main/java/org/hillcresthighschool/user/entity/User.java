@@ -52,7 +52,10 @@ public class User {
 
     @ManyToMany(mappedBy = "usersLikes")
     private Set<Question> questionsLikes;
+
+
     @OneToOne(mappedBy = "user_type")
     private UserType userType;
+    // was the other thing deleted? or did we not have?
 
 }

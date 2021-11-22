@@ -26,7 +26,7 @@ public class UserType {
     @Column(name="name")
     private String name;
 
-    @OneToMany(mappedBy = "user_type")
+    @OneToMany(mappedBy = "userType")
     private List<User> users;
 
 
