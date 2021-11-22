@@ -46,4 +46,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Question> questions;
 
+    @OneToOne(mappedBy = "user_type")
+    private UserType userType;
+
 }

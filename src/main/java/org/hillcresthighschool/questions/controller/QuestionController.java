@@ -17,7 +17,7 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
-    @PostMapping("/make")
+    @PostMapping("/createquestion")
     public String createQuestion(Model model, @ModelAttribute QuestionDTO question) {
         System.out.println("Question: " + question.toString());
         var savedQuestion = questionService.createQuestion(question);

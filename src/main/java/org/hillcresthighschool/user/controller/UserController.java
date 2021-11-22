@@ -15,7 +15,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/create")
+    @PostMapping("/createuser")
     public String createUser(Model model, @ModelAttribute UserDTO user) {
         System.out.println("User: " + user.toString());
         var savedUser = userService.createUser(user);
