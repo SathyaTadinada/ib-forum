@@ -2,9 +2,11 @@ package org.hillcresthighschool.questions.entity;
 
 import lombok.*;
 import org.hillcresthighschool.category.entity.Category;
+import org.hillcresthighschool.responses.entity.Response;
 import org.hillcresthighschool.user.entity.User;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -39,6 +41,9 @@ public class Question {
     @JoinColumn(name = "user_id")
     private User user; //lazy loading or one column alts
     // holds reference, so won't load if un-needed
+
+    @OneToMany(mappedBy = "question")
+    private List<Response> responses;
 
     @ManyToMany()
     @JoinTable(name = "question_category",

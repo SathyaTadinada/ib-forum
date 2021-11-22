@@ -21,8 +21,8 @@ public class Response {
   /*  @Column(name="user_id")
     private Integer userID;*/
 
-    @Column(name="question_id")
-    private Integer questionID;
+    /*@Column(name="question_id")
+    private Integer questionID;*/
 
     @Column(name="text")
     private String text;
@@ -42,6 +42,10 @@ public class Response {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User userResponse;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "question_id")
+    private User question;
 
 
 }
