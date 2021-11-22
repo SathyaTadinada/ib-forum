@@ -27,7 +27,7 @@ public class QuestionController {
                 .anonymous(savedQuestion.isAnonymous())
                 .approvedBy(savedQuestion.getApprovedBy())
                 .id(savedQuestion.getId())
-                .userID(savedQuestion.getUserID())
+//                .userID(savedQuestion.getUserID())
                 .likes(savedQuestion.getLikes())
                 .build();
         model.addAttribute("question", result);

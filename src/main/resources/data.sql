@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
-    users_id INT AUTO_INCREMENT,
+    id INT AUTO_INCREMENT,
     first_name VARCHAR(35) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(200) NOT NULL,
@@ -117,15 +117,15 @@ ALTER TABLE users
 
 ALTER TABLE question
     ADD FOREIGN KEY(user_id)
-    REFERENCES users(users_id);
+    REFERENCES users(id);
 
 ALTER TABLE response
     ADD FOREIGN KEY(user_id)
-    REFERENCES users(users_id);
+    REFERENCES users(id);
 
 ALTER TABLE response
     ADD FOREIGN KEY(question_id)
-    REFERENCES users(users_id);
+    REFERENCES users(id);
 
 
 
@@ -133,3 +133,4 @@ INSERT INTO user_type (name) VALUES
   ('Admin'),
   ('Student'),
   ('Parent');
+

@@ -1,8 +1,12 @@
 package org.hillcresthighschool.user.entity;
 
 import lombok.*;
+import org.hillcresthighschool.category.entity.Category;
+import org.hillcresthighschool.questions.entity.Question;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -13,9 +17,9 @@ import javax.persistence.*;
 @Table(name="users")
 public class User {
 
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column (name="users_id")
+    @Column (name="id")
     private Integer id;
 
     @Column(name="first_name")
@@ -38,5 +42,8 @@ public class User {
 
     @Column(name="salt")
     private String salt;
+
+    @OneToMany(mappedBy = "user")
+    private List<Question> questions;
 
 }

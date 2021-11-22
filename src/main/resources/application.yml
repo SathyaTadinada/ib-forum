@@ -9,6 +9,7 @@ spring:
     password: password
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html

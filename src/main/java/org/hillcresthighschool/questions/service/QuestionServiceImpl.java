@@ -18,11 +18,22 @@ public class QuestionServiceImpl implements QuestionService{
 
     @Override
     public Question createQuestion(QuestionDTO dto) {
+        /*User user = User.builder()
+                .email("email")
+                .firstName("a")
+                .lastName("b")
+                .phoneNumber("1")
+                .username("userName")
+                .userID(1).build();*/
+
         var question = Question.builder()
                 .text(dto.getText())
                 .date(dto.getDate())
                 .anonymous(dto.isAnonymous())
                 .approvedBy(dto.getApprovedBy())
+/*
+                .user(user)
+*/
                 .build();
 
             var savedQuestion = questionRepository.save(question);
