@@ -26,7 +26,7 @@ public class ResponseController {
                 .anonymous(savedResponse.isAnonymous())
                 .approvedBy(savedResponse.getApprovedBy())
                 .id(savedResponse.getId())
-                .question_ID(savedResponse.getQuestionID())
+                //.question_ID(savedResponse.getQuestionID())
                 .userID(savedResponse.getUserID())
                 .likes(savedResponse.getLikes())
                 .build();

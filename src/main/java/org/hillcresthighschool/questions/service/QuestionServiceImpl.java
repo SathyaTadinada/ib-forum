@@ -33,9 +33,7 @@ public class QuestionServiceImpl implements QuestionService{
                 .date(dto.getDate())
                 .anonymous(dto.isAnonymous())
                 .approvedBy(dto.getApprovedBy())
-/*
                 .user(user)
-*/
                 .build();
 
         return questionRepository.save(question);
