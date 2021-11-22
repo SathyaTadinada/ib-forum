@@ -134,3 +134,25 @@ INSERT INTO user_type (name) VALUES
   ('Student'),
   ('Parent');
 
+INSERT INTO users (id) VALUES
+(1);
+
+INSERT INTO users (first_name) VALUES
+('a');
+
+INSERT INTO users (last_name) VALUES
+('b');
+
+INSERT INTO users (email) VALUES
+('email');
+
+INSERT INTO users (phone) VALUES
+('1');
+
+INSERT INTO users (username) VALUES
+('userName');
+
+INSERT INTO users (user_type) VALUES
+(1);
+
+

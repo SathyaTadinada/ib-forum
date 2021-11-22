@@ -1,6 +1,8 @@
 package org.hillcresthighschool.responses.entity;
 
 import lombok.*;
+import org.hillcresthighschool.user.entity.User;
+
 import javax.persistence.*;
 
 @Getter
@@ -16,8 +18,8 @@ public class Response {
     @Column (name="id")
     private Integer id;
 
-    @Column(name="user_id")
-    private Integer userID;
+  /*  @Column(name="user_id")
+    private Integer userID;*/
 
     @Column(name="question_id")
     private Integer questionID;
@@ -36,6 +38,10 @@ public class Response {
 
     @Column(name="likes")
     private Integer likes;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User userResponse;
 
 
 }

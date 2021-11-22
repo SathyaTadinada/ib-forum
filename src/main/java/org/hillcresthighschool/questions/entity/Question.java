@@ -46,5 +46,11 @@ public class Question {
     inverseJoinColumns = {@JoinColumn(name="category_id")})
     private Set<Category> categories;
 
+    @ManyToMany()
+    @JoinTable(name = "question_likes",
+            joinColumns = {@JoinColumn(name="question_id")},
+            inverseJoinColumns = {@JoinColumn(name="user_id")})
+    private Set<User> usersLikes;
+
 
 }

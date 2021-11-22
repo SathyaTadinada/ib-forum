@@ -18,13 +18,15 @@ public class QuestionServiceImpl implements QuestionService{
 
     @Override
     public Question createQuestion(QuestionDTO dto) {
-        /*User user = User.builder()
+        User user = User.builder()
                 .email("email")
                 .firstName("a")
                 .lastName("b")
                 .phoneNumber("1")
                 .username("userName")
-                .userID(1).build();*/
+                .userType(1)
+                .userID(1).build();
+        //do i make a usertype? ?
 
         var question = Question.builder()
                 .text(dto.getText())

@@ -3,6 +3,7 @@ package org.hillcresthighschool.user.entity;
 import lombok.*;
 import org.hillcresthighschool.category.entity.Category;
 import org.hillcresthighschool.questions.entity.Question;
+import org.hillcresthighschool.responses.entity.Response;
 
 import javax.persistence.*;
 import java.util.List;
@@ -45,5 +46,11 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Question> questions;
+
+    @OneToMany(mappedBy = "userResponse")
+    private List<Response> responses;
+
+    @ManyToMany(mappedBy = "usersLikes")
+    private Set<Question> questionsLikes;
 
 }

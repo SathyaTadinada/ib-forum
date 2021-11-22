@@ -16,7 +16,7 @@ public class ResponseController {
         this.responseService = responseService;
     }
 
-    @PostMapping("/make")
+    @PostMapping("/createresponse")
     public String createResponse(Model model, @ModelAttribute ResponsesDTO response) {
         System.out.println("Response: " + response.toString());
         var savedResponse = responseService.createResponse(response);
