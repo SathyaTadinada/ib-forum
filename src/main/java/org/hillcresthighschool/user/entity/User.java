@@ -52,5 +52,7 @@ public class User {
 
     @ManyToMany(mappedBy = "usersLikes")
     private Set<Question> questionsLikes;
+    @OneToOne(mappedBy = "user_type")
+    private UserType userType;
 
 }
