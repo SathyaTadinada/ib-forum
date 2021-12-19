@@ -4,10 +4,13 @@ import lombok.*;
 import org.hillcresthighschool.category.entity.Category;
 import org.hillcresthighschool.questions.entity.Question;
 import org.hillcresthighschool.responses.entity.Response;
-
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Getter
 @Setter
@@ -16,7 +19,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name="users")
-public class User {
+public class User implements UserDetails {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -54,8 +57,33 @@ public class User {
     private Set<Question> questionsLikes;
 
 
-    @OneToOne(mappedBy = "user_type")
-    private UserType userType;
+    @Column(name="user_type")
+    private int userType;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(() -> "read");
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
     // was the other thing deleted? or did we not have?
 
 }

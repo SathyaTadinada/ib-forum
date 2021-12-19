@@ -5,6 +5,7 @@ import org.hillcresthighschool.questions.entity.Question;
 import org.hillcresthighschool.questions.repository.QuestionRepository;
 import org.hillcresthighschool.user.dto.UserDTO;
 import org.hillcresthighschool.user.entity.User;
+import org.hillcresthighschool.user.entity.UserType;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,7 +26,8 @@ public class QuestionServiceImpl implements QuestionService{
                 .phoneNumber("1")
                 .username("userName")
                 .userType(1)
-                .userID(1).build();
+                //.userID(1)
+                .build();
         //do i make a usertype? ?
 
         var question = Question.builder()

@@ -134,25 +134,8 @@ INSERT INTO user_type (name) VALUES
   ('Student'),
   ('Parent');
 
-INSERT INTO users (id) VALUES
-(1);
+INSERT INTO users (id, first_name, last_name, email, phone, username, user_type, password_hash, salt, deleted) VALUES
+(1, 'a', 'b', 'email', '1', 'userName', 1, 'string', 'string', false);
 
-INSERT INTO users (first_name) VALUES
-('a');
-
-INSERT INTO users (last_name) VALUES
-('b');
-
-INSERT INTO users (email) VALUES
-('email');
-
-INSERT INTO users (phone) VALUES
-('1');
-
-INSERT INTO users (username) VALUES
-('userName');
-
-INSERT INTO users (user_type) VALUES
-(1);
 
 

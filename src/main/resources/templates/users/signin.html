@@ -121,14 +121,14 @@
   <h5>
     **All fields required
   </h5>
-  <form action="#" th:action = "@{/create}" th:object="${user}" method="post" class="container">
+  <form action="#" th:action = "@{/login}" method="post" class="container">
     <p>
 
       <label> Email: </label>
-      <input type="text" th:field="*{email}" size="50">
+      <input type="text" name="username" size="50">
       <br><br>
       <label> Password: </label>
-      <input type="text" th:field="*{password}" size="50">
+      <input type="text" name="password" size="50">
       <br><br>
 
     </p>

@@ -27,7 +27,7 @@ public class ResponseController {
                 .approvedBy(savedResponse.getApprovedBy())
                 .id(savedResponse.getId())
                 //.question_ID(savedResponse.getQuestionID())
-                .userID(savedResponse.getUserID())
+                //.userID(savedResponse.getUserID())
                 .likes(savedResponse.getLikes())
                 .build();
         model.addAttribute("response", result);

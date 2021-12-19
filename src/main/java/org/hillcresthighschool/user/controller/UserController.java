@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping
 public class UserController {
@@ -36,4 +39,11 @@ public class UserController {
         model.addAttribute("user", new UserDTO());
         return "users/addUser";
     }
+
+
+    @GetMapping("/login")
+    public String login(HttpServletRequest request, HttpSession session){
+        return "users/signin";
+    }
+
 }

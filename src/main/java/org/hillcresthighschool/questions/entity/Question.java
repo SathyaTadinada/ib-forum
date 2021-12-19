@@ -37,7 +37,7 @@ public class Question {
     @Column(name="likes")
     private Integer likes;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user; //lazy loading or one column alts
     // holds reference, so won't load if un-needed

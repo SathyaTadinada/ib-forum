@@ -39,7 +39,7 @@ public class Response {
     @Column(name="likes")
     private Integer likes;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User userResponse;
 
